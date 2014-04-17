@@ -13,8 +13,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'TwoLAME.framework/Versions/A/Headers/*.h'
-  s.ios.vendored_frameworks = 'TwoLAME.framework'
-  s.osx.vendored_frameworks = 'TwoLAME.framework'
+  s.vendored_frameworks = 'TwoLAME.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)' }
   s.preserve_paths = 'TwoLAME.framework'
 end
