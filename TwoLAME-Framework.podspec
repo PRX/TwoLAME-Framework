@@ -6,14 +6,15 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/PRX/TwoLAME-Framework'
   s.social_media_url = 'https://twitter.com/prx'
   s.authors  = { 'Chris Kalafarski' => 'chris.kalafarski@prx.org' }
-  s.source   = { :git => 'https://github.com/PRX/TwoLAME-Framework.git', :tag => "0.3.13", :submodules => true }
-  s.requires_arc = false
+  s.source   = { :git => 'https://github.com/PRX/TwoLAME-Framework.git', :tag => "#{s.version}" }
+  s.requires_arc = true
 
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
 
-  s.source_files = 'TwoLAME.framework/Headers/twolame.h'
-  s.preserve_paths = 'TwoLAME.framework/*'
-  s.frameworks   = 'TwoLAME'
-  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TwoLAME"' }
+  s.source_files = 'TwoLAME.framework/Versions/A/Headers/*.h'
+  s.ios.vendored_frameworks = 'TwoLAME.framework'
+  s.osx.vendored_frameworks = 'TwoLAME.framework'
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)' }
+  s.preserve_paths = 'TwoLAME.framework'
 end
